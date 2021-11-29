@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Department{% endblock %}
+
+{% block body %}
+<div class="col-6">
+    <h1>Departement #{{ department.id }}</h1>
+
+    <table class="table" >
+        <tbody>
+
+            <tr>
+                <th>Nom</th>
+                <td>{{ department.name }}</td>
+            </tr>
+            <tr>
+                <th>Capacité</th>
+                <td>{{ department.capacity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

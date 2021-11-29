@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+<div class="form-group">
+    <div class="row">
+        <label class="col-md-3 col-sm-12 col-xs-12">Nom: </label>
+        <div class="col-md-9 col-sm-8 col-xs-8"> {{ form_widget(form.name , { 'attr': {'class': 'form-control'} }) }} </div>
+        {{ form_errors(form.name) }}
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-md-3 col-sm-12 col-xs-12">Capacité: </label>
+        <div class="col-md-9 col-sm-8 col-xs-8"> {{ form_widget(form.capacity , { 'attr': {'class': 'form-control'} }) }} </div>
+        {{ form_errors(form.capacity) }}
+    </div>
+</div>
+<button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

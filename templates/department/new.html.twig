@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Department{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12"> <h1>Ajouter un nouveau departement</h1></div>
+    <div class="col-6">{{ include('department/_form.html.twig') }}</div>
+</div>
+{% endblock %}

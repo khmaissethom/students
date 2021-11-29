@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-12">
+            <div class="nav-scroller py-1 font-weight-bold">
+                <nav class="nav d-flex ">
+                    <a class="p-2 text-muted" href="{{ path("student_index") }}">Etudiant</a>
+                    <a class="p-2 text-muted" href="{{ path("department_index") }}">Department</a>
+                </nav>
+                <hr>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {% block body %}{% endblock %}
+            </div>
+
+        </div>
+    </div>
+    </body>
+</html>

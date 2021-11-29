@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Department index{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-6"> <h1>Liste des departments </h1></div>
+    <div class="col-md-6"> <a href="{{ path('department_new') }}" style="float: right"class="btn btn-primary mb-3">Créer un nouveau department</a></div>
+
+    <table class="table table-container">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Capacité</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for department in departments %}
+            <tr>
+                <td>{{ department.id }}</td>
+                <td>{{ department.name }}</td>
+                <td>{{ department.capacity }}</td>
+                <td>
+                    <div class="row">
+                    <a type="button" class="btn btn-secondary" href="{{ path('department_show', {'id': department.id}) }}"><i class="icon-eye-open"></i></a> &nbsp;
+                    <a type="button" class="btn btn-success" href="{{ path('department_edit', {'id': department.id}) }}"><i class="icon-edit"></i></a>&nbsp;
+
+                    {{ include('department/_delete_form.html.twig') }}
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

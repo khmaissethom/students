@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des etudiants {% endblock %}
+
+{% block body %}
+
+  <div class="row">
+    <div class="col-md-6 col-sm-12"><h4>Liste des etudiants</h4></div>
+    <div class="col-md-6 col-sm-12"> <a href="{{ path('student_new') }}" style="float: right"class="btn btn-primary mb-3">Créer un nouveau etudiant</a></div>
+    <div class="col-md-12 "><table class="table table-container">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">N° etudiant</th>
+            <th scope="col">Departement</th>
+            <th  scope="col text-center">Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+                <td scope="row">{{ student.id }}</td>
+
+                <td>{{ student.firstName }}</td>
+                <td>{{ student.lastName }}</td>
+                <td>{{ student.numStudent }}</td>
+                <td>{% if student.department %}{{ student.department.name }}{% endif %}</td>
+                <td >
+                    <div class="row">
+                    <a type="button" class="btn btn-secondary" href="{{ path('student_show', {'id': student.id}) }}"><i class="icon-eye-open"></i></a> &nbsp;
+                    <a type="button" class="btn btn-success" href="{{ path('student_edit', {'id': student.id}) }}"><i class="icon-edit"></i></a>&nbsp;
+
+                    {{ include('student/_delete_form.html.twig') }}
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Les liste des etudiants ne contient aucun élément pour l'instant.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table></div>
+  </div>
+{% endblock %}
